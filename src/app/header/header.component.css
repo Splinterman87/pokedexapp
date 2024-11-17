@@ -1,0 +1,14 @@
+mat-toolbar {
+    background-color: seagreen;
+    display: flex;
+    padding: 20px 0px;
+    justify-content: center;
+}
+
+mat-toolbar h1 {
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 3px;
+
+}
+

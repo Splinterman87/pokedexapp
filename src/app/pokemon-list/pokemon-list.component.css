@@ -1,0 +1,43 @@
+.pokemon-grid {
+    display:grid;
+    grid-gap: 16px;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(23%, 1fr));
+}
+
+.pokemon-grid .box {
+    width: 100%;
+    min-height: 300px; /* Allow boxes to expand if content grows */
+    box-shadow: 1px 2px 5px black;
+    display: flex; /* Use flexbox for better alignment */
+    flex-direction: column; /* Align items vertically */
+    justify-content: space-between; /* Distribute space between elements */
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px; /* Add some rounding to make it visually appealing */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.pokemon-grid .box img {
+    max-width: 100px;
+    height: auto; /* Maintain image aspect ratio */
+    display: block;
+    margin: 0 auto;
+}
+
+.pokemon-grid .box h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.pokemon-grid .box p {
+    margin: 5px 0;
+    white-space: normal; /* Allow text to wrap */
+    word-break: break-word; /* Prevent long words from overflowing */
+}
+
+.pagination-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
