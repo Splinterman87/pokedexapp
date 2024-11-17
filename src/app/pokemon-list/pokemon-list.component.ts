@@ -15,6 +15,7 @@ pokemons: any[] = [];
 currentPage: number = 1;
 totalPokemons: number = 0;
 
+
   constructor(private dataService: DataService) {}
 
 
@@ -23,15 +24,39 @@ totalPokemons: number = 0;
   }
 
   getPokemons() {
-        this.dataService.getPokemons(10, this.currentPage + 0).subscribe((response: any) => {
-      this.totalPokemons = response.count;
+      const limit = 10;
+      const offset = (this.currentPage - 1) * limit;
 
-      response.results.forEach((result: { name: string; }) => {
-        this.dataService.getMorePokemons(result.name).subscribe((uniqueResponse: any) => {
-          this.pokemons.push(uniqueResponse);
-          console.log(this.pokemons)
-        })
-      })
-    })
+      this.dataService.getPokemons(limit, offset).subscribe((response: any) => {
+        this.totalPokemons = response.count;
+  
+        // Reset the pokemons array to clear the previous data on page change
+        this.pokemons = [];
+  
+        // Fetch details for each Pokemon
+        response.results.forEach((result: { name: string }) => {
+          this.dataService.getMorePokemons(result.name).subscribe((uniqueResponse: any) => {
+            this.pokemons.push(uniqueResponse);
+          });
+        });
+      });
+
+
+
+    //   this.dataService.getPokemons(10, this.currentPage + 0).subscribe((response: any) => {
+    //   this.totalPokemons = response.count;
+
+    //   response.results.forEach((result: { name: string; }) => {
+    //     this.dataService.getMorePokemons(result.name).subscribe((uniqueResponse: any) => {
+    //       this.pokemons.push(uniqueResponse);
+    //     })
+    //   })
+    // })
   }
+
+    // Handle pagination change
+    onPageChange(page: number) {
+      this.currentPage = page;
+      this.getPokemons(); // Fetch data for the new page
+    }
 }
