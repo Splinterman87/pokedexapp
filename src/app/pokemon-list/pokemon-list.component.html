@@ -2,8 +2,9 @@
     <div
       class="box"
       *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 12, currentPage: currentPage, totalItems: totalPokemons }; let i = index"
-      [class.flipped]="cardStates[i] === 'flipped'"
+       [class.flipped]="cardStates[i] === 'flipped'"
     >
+    
       <div class="card-inner">
         <!-- Front Side -->
         <div class="card-front">

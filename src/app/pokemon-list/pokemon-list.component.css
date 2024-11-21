@@ -13,9 +13,10 @@
     perspective: 1000px; /* Add perspective for 3D effect */
     overflow: hidden;
     border-radius: 12px;
+    border-color: #3b4cca;
   }
 
-  
+ 
   .pokemon-grid .box .card-inner {
     position: relative;
     width: 100%;
@@ -28,6 +29,7 @@
   
   .pokemon-grid .box.flipped .card-inner {
     transform: rotateY(180deg); /* Flip the card */
+    background: #b91919;
   }
   
   .pokemon-grid .box .card-front,
@@ -41,17 +43,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
   }
   
   .pokemon-grid .box .card-front {
     background: linear-gradient(135deg, #ffcb05, #3b4cca);
     color: #fff;
-
   }
   
   .pokemon-grid .box .card-back {
-    background: #3b4cca; /* Solid color for the back side */
+    background: #b91919; /* Solid color for the back side */
     transform: rotateY(180deg); /* Back face is flipped initially */
     padding: 5px;
   }
@@ -61,22 +62,25 @@
     max-width: 100px;
     height: auto;
     display: block;
-    margin: 0 auto 10px;
+    margin: 0 auto 12px;
   }
   
   .pokemon-grid .box h3 {
     font-size: 20px;
     margin: 10px 0;
-    color: #ffcb05;
-    text-shadow: 1px 1px 0 #3b4cca;
+    color: #e28c0b;
+    text-shadow: 2px 2px 0 #000000;
     text-transform: capitalize;
   }
   
   .pokemon-grid .box p {
-    margin: 5px 0;
+    margin: 2px 0;
     color: #fff; /* Ensure text is readable on gradient background */
     white-space: normal;
     word-break: break-word;
   }
+
+  .pokemon-grid .box b {
+    text-decoration: solid;
+  }
   
-  /* TODO: Paginator och snygga till korten */
