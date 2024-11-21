@@ -13,7 +13,23 @@ mat-toolbar h1 {
     position:absolute;
     left: 40%;
 }
-#search {
+
+.search-container {
     position: absolute;
     left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#search {
+    border-radius: 4px;
+    height: 24px;
+    width: 200px;
+}
+
+button.search {
+    border-radius: 4px;
+    height: 30px;
+    width: 100px;
+    margin-left: 10px;
 }
