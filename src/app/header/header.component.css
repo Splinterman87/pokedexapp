@@ -2,13 +2,18 @@ mat-toolbar {
     background-color: seagreen;
     display: flex;
     padding: 20px 0px;
-    justify-content: center;
+
+    justify-content: space-between;
 }
 
 mat-toolbar h1 {
     text-transform: uppercase;
     color: white;
     letter-spacing: 3px;
-
+    position:absolute;
+    left: 40%;
 }
-
+#search {
+    position: absolute;
+    left: 20px;
+}
