@@ -24,12 +24,14 @@ cardStates: string[] = [];
 
   constructor(private dataService: DataService) {}
 
-
+//Rensar pokemon arrayen och hämtar nya pokemons
   ngOnInit(): void {
+
+
     this.pokemons = [];
-    this.getPokemons();
-    
+    this.getPokemons(); 
   }
+
 
   getPokemons() {
       const limit = 12;
@@ -60,6 +62,19 @@ cardStates: string[] = [];
     // Handle pagination change
     onPageChange(page: number) {
       this.currentPage = page;
-      this.getPokemons(); // Fetch data for the new page
+      //this.getPokemons(); // Fetch data for the new page
+      this.getPokemons();
     }
+
+
+
+    //Metod för att flippa korten manuellt
+    flipCard(index: number): void {
+
+      this.cardStates[index] = this.cardStates[index] === 'flipped' ? 'default' : 'flipped';
+  
+    }
+
 }
+
+

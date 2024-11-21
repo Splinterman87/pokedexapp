@@ -1,8 +1,10 @@
 <div class="pokemon-grid">
     <div
       class="box"
-      *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 12, currentPage: currentPage, totalItems: totalPokemons }; let i = index"
-       [class.flipped]="cardStates[i] === 'flipped'"
+      *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 12, currentPage: currentPage, totalItems: totalPokemons }; 
+      let i = index"
+      [class.flipped]="cardStates[i] === 'flipped'"
+      (click)="flipCard(i)"
     >
     
       <div class="card-inner">
