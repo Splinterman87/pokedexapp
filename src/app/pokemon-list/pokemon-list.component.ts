@@ -20,6 +20,7 @@ pokemons: any[] = [];
 currentPage: number = 1;
 totalPokemons: number = 0;
 cardStates: string[] = [];
+src: any;
 
 
   constructor(private dataService: DataService) {}
