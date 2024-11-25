@@ -20,24 +20,22 @@ pokemons: any[] = [];
 currentPage: number = 1;
 totalPokemons: number = 0;
 cardStates: string[] = [];
+src: any;
 
 
   constructor(private dataService: DataService) {}
 
 //Rensar pokemon arrayen och hämtar nya pokemons
   ngOnInit(): void {
-
-
     this.pokemons = [];
     this.getPokemons(); 
   }
-
 
   getPokemons() {
       const limit = 14;
       const offset = (this.currentPage - 1) * limit;
 
-      this.dataService.getPokemons(limit, offset).subscribe((response: any) => {
+      this.dataService.getNumberOfPokemons(limit, offset).subscribe((response: any) => {
         this.totalPokemons = response.count;
   
         // Reset the pokemons array to clear the previous data on page change
@@ -46,11 +44,11 @@ cardStates: string[] = [];
   
         // Fetch details for each Pokemon
         response.results.forEach((result: { name: string }, index: number) => {
-          this.dataService.getMorePokemons(result.name).subscribe((uniqueResponse: any) => {
-
+          this.dataService.getPokemonInfo(result.name).subscribe((uniqueResponse: any) => {
               this.pokemons.push(uniqueResponse);
               this.cardStates.push('flipped');
 
+              //Sets a delay for the card flip to occur
               setTimeout (() => {
                 this.cardStates[index] = 'default';
               }, 500 + index * 100);
@@ -62,7 +60,6 @@ cardStates: string[] = [];
     // Handle pagination change
     onPageChange(page: number) {
       this.currentPage = page;
-      //this.getPokemons(); // Fetch data for the new page
       this.getPokemons();
     }
 
