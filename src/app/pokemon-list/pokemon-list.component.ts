@@ -34,7 +34,7 @@ cardStates: string[] = [];
 
 
   getPokemons() {
-      const limit = 12;
+      const limit = 14;
       const offset = (this.currentPage - 1) * limit;
 
       this.dataService.getPokemons(limit, offset).subscribe((response: any) => {
